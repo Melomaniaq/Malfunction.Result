@@ -6,7 +6,7 @@ namespace MalFunction.Result
         /// <summary>
         /// Converts a collection of results into a single result containing a collection
         /// </summary>
-        public static IResult<List<TPass>, List<TFail>> Traverse<TPass, TFail>(this List<IResult<TPass, TFail>> enumerable) => 
+        public static IResult<List<TPass>, List<TFail>> Sequence<TPass, TFail>(this List<IResult<TPass, TFail>> enumerable) => 
             Traverse(enumerable.AsEnumerable(), x => x)
             .Map(x => x.ToList())
             .MapFail(x => x.ToList());
@@ -14,7 +14,7 @@ namespace MalFunction.Result
         /// <summary>
         /// Converts a collection of results into a single result containing a collection
         /// </summary>
-        public static IResult<TPass[], TFail[]> Traverse<TPass, TFail>(this IResult<TPass, TFail>[] enumerable) => 
+        public static IResult<TPass[], TFail[]> Sequence<TPass, TFail>(this IResult<TPass, TFail>[] enumerable) => 
             Traverse(enumerable.AsEnumerable(), x => x)
             .Map(x => x.ToArray())
             .MapFail(x => x.ToArray());
@@ -22,27 +22,27 @@ namespace MalFunction.Result
         /// <summary>
         /// Converts a collection of results into a single result containing a collection
         /// </summary>
-        public static IResult<IEnumerable<TPass>, IEnumerable<TFail>> Traverse<TPass, TFail>(this IEnumerable<IResult<TPass, TFail>> enumerable) =>
+        public static IResult<IEnumerable<TPass>, IEnumerable<TFail>> Sequence<TPass, TFail>(this IEnumerable<IResult<TPass, TFail>> enumerable) =>
             Traverse(enumerable, x => x);
 
         /// <summary>
         /// Converts a collection of results into a single result containing a collection
         /// </summary>
-        public static IResult<TPass[], TFail> Traverse<TPass, TFail>(this IResult<TPass, TFail>[] enumerable, Func<TFail, TFail, TFail> failAggregator) => 
+        public static IResult<TPass[], TFail> Sequence<TPass, TFail>(this IResult<TPass, TFail>[] enumerable, Func<TFail, TFail, TFail> failAggregator) => 
             Traverse(enumerable.AsEnumerable(), x => x, failAggregator)
             .Map(x => x.ToArray());
 
         /// <summary>
         /// Converts a collection of results into a single result containing a collection
         /// </summary>
-        public static IResult<List<TPass>, TFail> Traverse<TPass, TFail>(this List<IResult<TPass, TFail>> enumerable, Func<TFail, TFail, TFail> failAggregator) => 
+        public static IResult<List<TPass>, TFail> Sequence<TPass, TFail>(this List<IResult<TPass, TFail>> enumerable, Func<TFail, TFail, TFail> failAggregator) => 
             Traverse(enumerable.AsEnumerable(), x => x, failAggregator)
             .Map(x => x.ToList());
 
         /// <summary>
         /// Converts a collection of results into a single result containing a collection
         /// </summary>
-        public static IResult<IEnumerable<TPass>, TFail> Traverse<TPass, TFail>(this IEnumerable<IResult<TPass, TFail>> enumerable, Func<TFail, TFail, TFail> failAggregator) => 
+        public static IResult<IEnumerable<TPass>, TFail> Sequence<TPass, TFail>(this IEnumerable<IResult<TPass, TFail>> enumerable, Func<TFail, TFail, TFail> failAggregator) => 
             Traverse(enumerable, x => x, failAggregator);
 
         /// <summary>
