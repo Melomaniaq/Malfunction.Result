@@ -8,7 +8,7 @@
     <Title>MalFunction.Result</Title>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/Melomaniaq/MalFunction.Result</RepositoryUrl>
-    <Description>Function result type for C#</Description>
+    <Description>Functional result type for C#</Description>
   </PropertyGroup>
 
 </Project>
