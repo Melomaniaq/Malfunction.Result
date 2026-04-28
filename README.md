@@ -1,4 +1,5 @@
 # Malfunction.Result
+![NuGet Version](https://img.shields.io/nuget/v/Malfunction.Result?style=flat)
 
 Functional result type for C#
 
