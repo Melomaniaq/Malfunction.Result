@@ -9,6 +9,18 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/Melomaniaq/MalFunction.Result</RepositoryUrl>
     <Description>Functional result type for C#</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/Melomaniaq/MalFunction.Result</PackageProjectUrl>
+    <PackageTags>functional; result; </PackageTags>
+    <IncludeSymbols>False</IncludeSymbols>
+	<DebugType>embedded</DebugType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
