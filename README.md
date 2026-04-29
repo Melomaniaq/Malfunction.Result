@@ -52,7 +52,7 @@ IResult<string, string> stringResult = intResult.Map(x => x.ToString());
 Projects result's value into a new result
 ```cs
 IResult<int, string> intResult = new IResult<int, string>.Pass(20);
-IResult<string, string> stringResult = intResult.Map(x => new IResult<string, string>.Pass(x.ToString()));
+IResult<string, string> stringResult = intResult.Bind(x => new IResult<string, string>.Pass(x.ToString()));
 ```
 ## Traverse
 Map a result producing function over a list to get a new result
